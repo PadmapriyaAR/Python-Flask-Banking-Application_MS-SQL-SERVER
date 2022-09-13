@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Welcome to Bank Of Generation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+<style>
+.container{
+ background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(10,38,93,1) 100%);
+}
+.w3-xlarge i{
+  margin-right: 15px;
+  color: #26898a;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="{{url_for('index')}}" class="w3-bar-item w3-button w3-padding-large w3-white"><b>Home</b></a>
+    <a href="{{url_for('contact')}}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><b>Contact</b></a>
+    <a href="{{url_for('signin')}}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><b>Sign In</b></a>
+    <a href="{{url_for('signup')}}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><b>Sign up</b></a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-large">
+     <a href="{{url_for('contact')}}" class="w3-bar-item w3-button w3-padding-large"><b>Contact</b></a>
+    <a href="{{url_for('signin')}}" class="w3-bar-item w3-button w3-padding-large"><b>Sign In</b></a>
+    <a href="{{url_for('signup')}}" class="w3-bar-item w3-button w3-padding-large"><b>Sign up</b></a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-white w3-center"   style="padding:50px">
+  <h1 class="w3-margin w3-jumbo"><b>Bank Of Generation</b></h1>
+  <p class="w3-xlarge"><u>Secure your Future</u></p>
+</header>
+
+<!-- First Grid -->
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1 style="font-size:40px"><u>Future Investment</u></h1>
+
+       <p style="font-size:20px">Take your financial life online. Your easy bank account<br/>
+          will be a one-stop-shop for spending,saving,<br/>budgeting,investing,
+          and much more.</p>
+    </div>
+
+    <div class="w3-third w3-center">
+        <img src="{{ piggy }}">
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-right">
+      <h1 style="font-size:40px"><u>Why Us?</u></h1>
+      <p style="font-size:20px">We leverage open banking to turn your bank account into your
+        financial hub.<br />"Control your finances like never before."</p>
+
+    </div>
+
+    <div class="w3-twothird w3-left">
+      <img src="{{ why }}">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="w3-container w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge" style="color:white;"><b>Quote of the day: live life full size</b></h1>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">
+  <div class="w3-xlarge w3-padding-32">
+    <a href="https://www.facebook.com"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="https://www.instagram.com"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    <a href="https://twitter.com"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+ </div>
+</footer>
+ </form>
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
