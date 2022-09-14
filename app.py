@@ -1,13 +1,7 @@
-
-from enum import unique
-from pydoc import render_doc
-from flask import Flask,render_template,request,session,flash,redirect,url_for,flash
-import pyodbc
+from flask import Flask,render_template,request,flash,flash
 from sqlalchemy import create_engine
 from sqlalchemy import text
 from sqlalchemy.engine import URL
-from sqlalchemy import Column, ForeignKey, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 from table import *
 import csv
@@ -18,20 +12,21 @@ app = Flask(__name__)
 webimg = os.path.join("static")
 app.config["UPLOAD"] = webimg
 
-
+#database connection to Ms SQL Server
 connection_string = "DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-CP8GNGU\SQLEXPRESS01;DATABASE=Bank;Trusted_Connection=yes"
 connection_url = URL.create("mssql+pyodbc", query={"odbc_connect": connection_string})
 engine = create_engine(connection_url)    
 Base.metadata.bind = engine
 Base.metadata.create_all(engine)
 db = scoped_session(sessionmaker(bind=engine))
-
+#homepage
 @app.route("/")
 def index():
     webimg1= os.path.join(app.config["UPLOAD"], "piggy.jpg")
     webimg2 = os.path.join(app.config["UPLOAD"], "why.jpg")
     return render_template("web.html",piggy=webimg1,why=webimg2)
 
+# Saves details to the database
 @app.route("/regdetails",methods=["POST","GET"])
 def signup():
     if request.method == "POST":
@@ -47,7 +42,7 @@ def signup():
     return render_template("signup.html")
 
 
-
+#validates username and password
 @app.route('/login', methods=['POST', 'GET'] )
 def signin():
         global data
@@ -71,7 +66,7 @@ def signin():
                 
         return render_template("signin.html",signin=true)
 
-
+#transfer amt from user to to user
 @app.route("/transfer",methods=["POST","GET"])
 def transfer():
     if request.method =='POST':
@@ -96,7 +91,7 @@ def transfer():
     return render_template("transfer.html",id=id)
 
 
-
+#Contact page saves request in a csv file
 @app.route("/contact",methods=["POST","GET"])
 def contact():
     if request.method == "POST":
@@ -113,16 +108,10 @@ def contact():
             fo.close()
     return render_template("contact.html")
 
-
+#Signout will send us to home page.
 @app.route("/signout",methods=["POST","GET"])
 def signout():
     return render_template("web.html")
-
-
-
-
-
-
 
 
 if __name__ == '__main__' :
