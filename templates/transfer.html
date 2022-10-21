@@ -101,14 +101,14 @@ input[type="submit"]:hover{
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="{{url_for('index')}}" class="w3-bar-item w3-button w3-padding-large w3-white"><b>Home</b></a>
     <a href="{{url_for('contact')}}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><b>Contact</b></a>
-       <a href="{{url_for('signup')}}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><b>Sign up</b></a>
+       <a href="{{url_for('signout')}}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><b>Sign out</b></a>
 
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-large">
      <a href="{{url_for('contact')}}" class="w3-bar-item w3-button w3-padding-large"><b>Contact</b></a>
-      <a href="{{url_for('signup')}}" class="w3-bar-item w3-button w3-padding-large"><b>Sign up</b></a>
+      <a href="{{url_for('signout')}}" class="w3-bar-item w3-button w3-padding-large"><b>Sign out</b></a>
   </div>
 </div>
 
@@ -116,42 +116,50 @@ input[type="submit"]:hover{
 <header class="w3-container w3-center"  style="padding:70px 16px">
   <h1 class="w3-margin w3-jumbo"><b>Bank Of Generation</b></h1>
   <p class="w3-xlarge"><b><u>Secure your Future</u></b></p>
-</header><br><br><br>
+</header>
 
- <form action ="/login" method = "POST" autocomplete = "off">
-  <div class="center ">
-        <h1 style="color:#2193b0; font-size:40px"><b>Sign in here</b></h1>
+<form action ="{{ url_for('transfer',id=id) }}" method = "POST" autocomplete = "off">
+  <div class="center W3-card-6">
+        <h1 style="color:#2193b0; font: size 10px"><b>Transfer</b></h1>
         
             <div class="txt_field">
-                <input type="text" id="username"name="username" required>
+                <label>From</label>
                 <span></span>
-                <label>Username</label>
+                <input type="text" id="fromuser"name="fromuser" required>
+              
+                
             </div>
             <div class="txt_field">
-                <input type="password" id="password"  name="password"required>
+                <label>TO</label>
                 <span></span>
-                <label>Password</label>
-            </div><br>
+                <input type="text" id="touser"  name="touser"required>
+                
+                
+            </div>
+            <div class="txt_field">
+              <label>Amount</label>
+              <span></span>
+              <input type="text" id="Amount"  name="amount"required>
+              
+              
+           </div><br>
 
-           <input type="submit" name="login" value="Login">
-
-
-
+           <input type="submit" name="Transfer" value="Transfer">
 
     </div>
 </form>
 
 <script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
+    }
   }
-}
-</script>
-
+  </script>
+  
 </body>
 </html>
