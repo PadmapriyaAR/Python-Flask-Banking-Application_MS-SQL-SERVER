@@ -1,0 +1,29 @@
+html, body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.w3-bar{
+  background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(10,38,93,1) 100%);
+}
+
+.w3-bar-block{
+background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(10,38,93,1) 100%);
+}
+body,h1,h2,h3 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button,td {font-family: "Montserrat", sans-serif}
+
+th, td {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  font-size: 20px;
+  
+  color: #0b0b0b;
+
+}
